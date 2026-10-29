@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sikasika | TechNova iGames</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at top,#14244a,#070912 55%,#030409);color:#f5f7ff;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}.top{height:68px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;background:#05070edb;border-bottom:1px solid #29324a;position:sticky;top:0;z-index:5}.brand{font-weight:900}.brand small{display:block;color:#12cfff;font-size:9px;letter-spacing:2px}.mark{display:inline-grid;place-items:center;width:38px;height:38px;margin-right:8px;border-radius:11px;background:linear-gradient(135deg,#13d7ff,#245cff,#8838ff);vertical-align:middle}.wallet{padding:9px 13px;border:1px solid #303a55;border-radius:12px;background:#111725}.wallet b{color:#ffd45a}main{max-width:1100px;margin:auto;padding:25px 17px 50px}.view{display:none}.view.active{display:block}.hero{text-align:center;padding:20px 0 30px}.hero h1{font-size:clamp(42px,9vw,78px);margin:8px 0;background:linear-gradient(90deg,#fff,#14d4ff,#8147ff);-webkit-background-clip:text;color:transparent}.hero p{color:#aab3c8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}.card{background:linear-gradient(145deg,#151b2b,#0d1220);border:1px solid #2a344d;border-radius:18px;padding:20px;box-shadow:0 12px 30px #0005}.mode{min-height:180px;display:flex;flex-direction:column;justify-content:space-between}.card p,.muted{color:#aab3c8;line-height:1.5}.primary,.secondary{border:0;border-radius:11px;padding:13px 16px;font-weight:800;color:#fff}.primary{background:linear-gradient(90deg,#087dff,#13cfff)}.secondary{background:#20283c;border:1px solid #35415d}.primary:hover,.secondary:hover{filter:brightness(1.12)}.form{max-width:570px;margin:25px auto}.field{margin:15px 0}.field label{display:block;color:#bbc4d8;font-size:13px;margin-bottom:7px}input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #35405b;background:#0b1120;color:white}.stakes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stake{padding:11px;border:1px solid #35405b;border-radius:9px;background:#101728;color:#fff}.stake.sel{border-color:#13cfff;background:#073b5b}.row{display:flex;gap:9px;flex-wrap:wrap}.notice{margin-top:15px;padding:12px;border-radius:10px;background:#101729;border:1px solid #34405b;color:#cbd4e8}.head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.pill{padding:8px 11px;border:1px solid #303b55;border-radius:999px;background:#141b2b;font-size:13px}.table{margin:18px 0;padding:22px;background:radial-gradient(circle,#12334d,#071c2a 55%,#06111b);border:7px solid #293142;border-radius:27px;min-height:440px;box-shadow:inset 0 0 40px #0008}.players{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.player{padding:12px;border-radius:13px;border:1px solid #34405a;background:#08101ce6}.player.you{border-color:#13cfff}.playerTop{display:flex;justify-content:space-between}.player small{color:#96a1ba}.received{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.receivedCard{width:38px;height:52px;background:#fff;border-radius:6px;display:grid;place-items:center;font-size:15px;font-weight:900;box-shadow:0 2px 7px #0006}.receivedCard.red{color:#e3223e}.receivedCard.black{color:#111}.called{text-align:center;margin:23px 0}.callcard{width:90px;height:125px;background:#fff;color:#111;border-radius:10px;display:grid;place-items:center;font-size:36px;font-weight:900;margin:7px auto}.red{color:#e3223e}.black{color:#111}.status{text-align:center;font-size:18px;font-weight:800;min-height:28px}.reveals{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin:15px 0}.mini{width:68px;height:92px;background:white;color:#111;border-radius:9px;display:grid;place-items:center;font-size:23px;font-weight:900}.mini.win{outline:4px solid #ffd45a;box-shadow:0 0 22px #ffd45a88}.voicePanel{margin:14px 0;padding:14px;border:1px solid #34405b;border-radius:14px;background:#101729}.voicePanel h3{margin:0 0 8px}.voiceStatus{font-size:13px;color:#aab3c8;margin-top:8px}.voiceOn{background:linear-gradient(90deg,#087dff,#13cfff)}.voiceOff{background:#7b2530;border:1px solid #b63e4c}.rules{line-height:1.7;color:#c8d0e2}.rules li{margin:6px 0}@media(max-width:650px){.players{grid-template-columns:1fr}.table{padding:13px;border-width:5px}.wallet span{display:none}}
+
+/* SIKASIKA VISUAL UPGRADE — styling only; game rules and JavaScript unchanged */
+:root{color-scheme:dark;--cyan:#22e8ff;--pink:#ff3fc7;--gold:#ffd45a;--green:#16e98a;--blue:#348cff}
+body{background:radial-gradient(ellipse at 12% 0%,#30206f 0,transparent 34%),radial-gradient(ellipse at 90% 12%,#073f61 0,transparent 35%),linear-gradient(145deg,#080b20,#100b26 55%,#050914);background-attachment:fixed}
+.top{background:linear-gradient(90deg,rgba(7,10,28,.97),rgba(25,9,49,.96),rgba(4,25,48,.97));border-bottom:1px solid #20dfff;box-shadow:0 5px 28px #00cfff25}
+.brand{color:#fff;text-shadow:0 0 16px #20dfff55}.brand small{color:#39f4ff}.mark{background:linear-gradient(135deg,#00f5ff,#387bff 48%,#c52bff);box-shadow:0 0 20px #438dff70;border:1px solid #9ffaff}
+.wallet{border-color:#7252bf;background:linear-gradient(135deg,#181738,#101a31);box-shadow:inset 0 0 15px #6e37ff18}.wallet b{color:#ffe36a;text-shadow:0 0 10px #ffb52e55}
+.hero{padding-top:26px}.hero>div{color:#44f5ff!important;text-shadow:0 0 15px #00cfff66}.hero h1{background:linear-gradient(90deg,#fff5b8 0%,#ffd447 22%,#ff8b36 42%,#ff4fc8 65%,#54eaff 88%,#fff 100%);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 18px #ff8b3670);letter-spacing:3px}.hero p{color:#d3dcff;font-size:16px}
+.card{background:linear-gradient(145deg,rgba(31,28,65,.96),rgba(10,20,42,.97) 62%,rgba(14,30,53,.97));border:1px solid #514c91;box-shadow:0 14px 34px #0007,inset 0 1px 0 #ffffff12;position:relative;overflow:hidden}.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,#00eaff,#8c4dff,#ff48c7,#ffcb42);opacity:.9}.card h2{color:#fff0a6;text-shadow:0 0 12px #ffbf3930}.card p,.muted{color:#c0cbea}.mode:nth-child(1){background:linear-gradient(145deg,#123e59,#111b40 65%,#27134b);border-color:#17cfff}.mode:nth-child(2){background:linear-gradient(145deg,#38205b,#181d43 70%,#102d48);border-color:#c05bff}.mode:nth-child(3){background:linear-gradient(145deg,#103e4b,#121d43 65%,#2b174b);border-color:#28f0d0}.mode:nth-child(4){background:linear-gradient(145deg,#4b2b14,#25163e 65%,#101d39);border-color:#ffb739}
+.primary{background:linear-gradient(100deg,#00b9ff,#3167ff 48%,#9c35ff);box-shadow:0 5px 17px #176eff45,inset 0 1px 0 #ffffff50;border:1px solid #81eaff;color:#fff;text-shadow:0 1px 2px #0006;transition:transform .16s,filter .16s,box-shadow .16s}.primary:hover{filter:brightness(1.18);transform:translateY(-2px);box-shadow:0 8px 24px #2c9dff66}.secondary{background:linear-gradient(110deg,#31245d,#172d52);border:1px solid #7867c7;box-shadow:inset 0 1px 0 #ffffff15;transition:transform .16s,filter .16s}.secondary:hover{filter:brightness(1.2);transform:translateY(-2px)}
+input,select{background:linear-gradient(120deg,#0a142b,#171534);border:1px solid #5854a0;box-shadow:inset 0 2px 8px #0004}input:focus,select:focus{outline:2px solid #28eaff;outline-offset:1px}.field label{color:#e2dfff}.stake{background:linear-gradient(145deg,#202746,#11182d);border-color:#4c5782;transition:all .15s}.stake:nth-child(6n+1){border-color:#00d7ff}.stake:nth-child(6n+2){border-color:#9a68ff}.stake:nth-child(6n+3){border-color:#ff56c7}.stake:nth-child(6n+4){border-color:#ffb13b}.stake:nth-child(6n+5){border-color:#ff5369}.stake.sel{background:linear-gradient(110deg,#075c83,#3730a3);border-color:#66f6ff;box-shadow:0 0 16px #00dfff45;color:#fff}
+.notice,.voicePanel{background:linear-gradient(120deg,#101e39,#24183f);border-color:#4d5bb1;color:#dceaff}.pill{background:linear-gradient(120deg,#202448,#122b43);border-color:#4f63a4;box-shadow:0 3px 12px #0003}.table{background:radial-gradient(ellipse at center,#0e9b59 0%,#087142 48%,#06432f 78%,#032c26 100%);border:8px solid transparent;background-clip:padding-box;box-shadow:inset 0 0 0 2px #ffdf73,inset 0 0 45px #001e18,0 0 0 3px #b77c22,0 0 20px #ffd34b45;border-radius:30px;position:relative}.table:before{content:"";position:absolute;inset:8px;border:1px solid #c7ff9a45;border-radius:20px;pointer-events:none}.player{background:linear-gradient(145deg,rgba(7,24,45,.93),rgba(13,15,39,.94));border-color:#6c7bc0;box-shadow:0 5px 16px #001c1c70,inset 0 1px 0 #ffffff12}.player.you{border-color:#41f5ff;box-shadow:0 0 0 1px #41f5ff55,0 0 20px #16dfff35}.playerTop b{color:#fff}.playerTop span{color:#ffe16a}.player small{color:#b8c9ec}.called .muted{color:#fff2a8;font-weight:900;letter-spacing:2px;text-shadow:0 0 12px #ffd44b75}.callcard{border:3px solid #fff1a8;box-shadow:0 0 0 2px #ffb82e,0 0 25px #ffd34b90,0 7px 18px #001c1c99}.receivedCard,.mini{border:1px solid #e7f4ff;box-shadow:0 3px 8px #00152c88,inset 0 0 0 2px #d8e8ff}.receivedCard.red,.mini .red{color:#e51b43}.status{color:#fff7c7;text-shadow:0 2px 8px #001c18}.mini.win{outline:4px solid #ffe05a;box-shadow:0 0 28px #ffe05ac9}.voiceOn{background:linear-gradient(100deg,#00b86b,#00d9a0)}.voiceOff{background:linear-gradient(100deg,#9d1d4b,#e23a61)}
+@media(max-width:650px){.hero h1{letter-spacing:1px}.table{border-width:6px;border-radius:22px}.card{border-radius:15px}}
+
+
+/* CASINO-STYLE POLISH — visuals only; no game logic or rules changed */
+:root{--felt:#087b52;--felt2:#064a38;--casino-gold:#ffd66b;--casino-pink:#ff49bd;--casino-cyan:#49f4ff}
+body{background:radial-gradient(ellipse at 50% -12%,#6b2ca4 0,transparent 38%),radial-gradient(ellipse at 8% 35%,#092f65 0,transparent 32%),radial-gradient(ellipse at 92% 70%,#421052 0,transparent 30%),#070916;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.17;background-image:radial-gradient(#fff 0.7px,transparent .7px);background-size:23px 23px}
+.top{background:linear-gradient(100deg,#090b20f5,#23103bf5,#071c35f5);border-bottom:1px solid #ffd66b88;box-shadow:0 7px 28px #0008,0 1px 16px #ff49bd1b}
+.mark{border-radius:13px;box-shadow:0 0 0 2px #ffffff22,0 0 24px #35eaff66,0 0 42px #a72fff33;animation:markGlow 3.5s ease-in-out infinite}
+.hero h1{background:linear-gradient(100deg,#fff4b8,#ffd447 24%,#ff8e50 43%,#ff55c9 65%,#52f4ff 86%,#fff);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 0 18px #ffb02d55);text-shadow:none}
+.hero p{color:#e2e6ff;text-shadow:0 2px 10px #0009}
+.card{position:relative;overflow:hidden;border:1px solid #a68bdf66;background:linear-gradient(145deg,#21173eeb,#101b35f5 60%,#11122beb);box-shadow:0 14px 32px #0007,inset 0 1px 0 #ffffff16;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.card:before{content:"";position:absolute;top:0;left:-130%;width:75%;height:2px;background:linear-gradient(90deg,transparent,#fff5bd,#49f4ff,transparent);transition:left .65s ease;pointer-events:none}
+.card:hover{transform:translateY(-3px);border-color:#ffd66b99;box-shadow:0 18px 38px #0008,0 0 24px #a84dff24,inset 0 1px 0 #ffffff25}
+.card:hover:before{left:150%}
+.primary{background:linear-gradient(100deg,#ff9d27,#ff4fae 48%,#8157ff);border:1px solid #ffffff35;box-shadow:0 5px 0 #56216c,0 8px 20px #ff4fae35,inset 0 1px 0 #ffffff55;transition:transform .15s ease,filter .15s ease,box-shadow .15s ease}
+.primary:hover{filter:brightness(1.13) saturate(1.15);box-shadow:0 5px 0 #56216c,0 0 26px #ff4fae65,inset 0 1px 0 #ffffff66;transform:translateY(-1px)}
+.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #56216c}
+.secondary{background:linear-gradient(135deg,#292348,#172746);border:1px solid #7165a7;box-shadow:inset 0 1px 0 #ffffff12;transition:filter .18s ease,border-color .18s ease}
+.secondary:hover{border-color:#49f4ff;box-shadow:0 0 18px #49f4ff25}
+.stake{background:linear-gradient(145deg,#1c2341,#10182b);border-color:#65588d;transition:all .18s ease}
+.stake:hover{border-color:#ffd66b;transform:translateY(-1px)}
+.stake.sel{color:#fff7d4;background:linear-gradient(135deg,#c04a9b,#6344c9 55%,#176d9d);border-color:#ffe17b;box-shadow:0 0 0 1px #ffe17b55,0 0 19px #b85dff45}
+input:focus,select:focus{outline:none;border-color:#49f4ff;box-shadow:0 0 0 3px #49f4ff22}
+.table{position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#159365 0,#08714f 38%,#064632 72%,#042b25 100%);border:8px solid transparent;border-radius:32px;background-clip:padding-box;box-shadow:inset 0 0 0 2px #ffd66b, inset 0 0 48px #001b12aa,0 0 0 2px #8d5b31,0 0 0 5px #ffd66b44,0 15px 40px #0009}
+.table:before{content:"";position:absolute;inset:13px;border:1px solid #f8d98755;border-radius:22px;pointer-events:none}
+.player{background:linear-gradient(145deg,#0b2540f2,#10132cf2);border:1px solid #b7a1f077;box-shadow:0 7px 17px #00170f88,inset 0 1px 0 #ffffff18;transition:border-color .2s ease,box-shadow .2s ease}
+.player.you{border-color:#49f4ff;box-shadow:0 0 0 1px #49f4ff55,0 0 23px #49f4ff30,inset 0 1px 0 #ffffff25}
+.pill{background:linear-gradient(135deg,#282044,#112b3c);border-color:#7562a7;color:#f5edff;box-shadow:inset 0 1px 0 #ffffff12}
+.wallet{border-color:#d3a94b;background:linear-gradient(135deg,#28203d,#101b31);box-shadow:0 0 18px #ffd66b18,inset 0 1px 0 #ffffff1b}
+.wallet b{color:#ffe27a;text-shadow:0 0 11px #ffb72d77}
+.callcard{border:3px solid #fff0b1;box-shadow:0 0 0 2px #ffb82e,0 0 30px #ffd34bb0,0 10px 20px #001c1c99;animation:cardFloat 3s ease-in-out infinite}
+.receivedCard,.mini{border:1px solid #fff;box-shadow:0 4px 10px #00152c99,inset 0 0 0 2px #d8e8ff;transition:transform .15s ease}
+.receivedCard:hover,.mini:hover{transform:translateY(-3px) rotate(-1deg)}
+.status{color:#fff8c9;text-shadow:0 2px 12px #001b12,0 0 18px #ffd66b35}
+.notice,.voicePanel{background:linear-gradient(135deg,#151a35eF,#0b2635ef);border-color:#655b94;box-shadow:inset 0 1px 0 #ffffff12}
+.voiceOn{background:linear-gradient(100deg,#00a969,#00dba4);box-shadow:0 0 18px #00dba43b}.voiceOff{background:linear-gradient(100deg,#98204b,#e23a61)}
+@keyframes markGlow{0%,100%{filter:brightness(1);box-shadow:0 0 20px #438dff55}50%{filter:brightness(1.16);box-shadow:0 0 29px #ff49bd55}}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+@media(max-width:650px){.table{border-radius:23px;padding:13px}.card:hover{transform:none}.hero h1{font-size:clamp(38px,10vw,66px)}}
+
+
+/* TECHNOVA PREMIUM TABLE POLISH — CSS only; gameplay logic unchanged */
+:root{--tn-gold:#f6d47a;--tn-ice:#76f5ff;--tn-violet:#9b7bff;--tn-ink:#080b18}
+html{scroll-behavior:smooth}
+::selection{background:#a84dff;color:#fff}
+button,select,input{touch-action:manipulation}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--tn-ice);outline-offset:3px}
+.top{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{letter-spacing:.7px}
+.wallet{display:flex;align-items:center;gap:7px;min-height:42px}
+.hero{position:relative}
+.hero:after{content:"CALL • PLAY • EXPERIENCE";display:block;width:max-content;max-width:100%;margin:17px auto 0;padding:8px 16px;border:1px solid #f6d47a70;border-radius:999px;background:linear-gradient(90deg,#211634,#102c3d);color:#ffe8a3;font-size:10px;font-weight:900;letter-spacing:2px;box-shadow:0 0 22px #9b7bff19}
+.hero h1{font-weight:1000;line-height:1.02;text-shadow:0 8px 25px #0008;letter-spacing:4px}
+.mode{min-height:194px}
+.mode h2{display:flex;align-items:center;gap:8px}
+.mode .primary,.mode .secondary{width:100%;min-height:46px}
+.rules li::marker{color:var(--tn-gold);font-weight:900}
+.form{border-color:#8e75d7;box-shadow:0 24px 70px #0008,0 0 28px #8b5cf61a}
+.field label{font-weight:800;letter-spacing:.25px}
+.stakes{grid-template-columns:repeat(auto-fit,minmax(76px,1fr))}
+.stake{min-height:43px;font-weight:900}
+.table{isolation:isolate}
+.table:after{content:"SIKASIKA • TECHNOVA iGAMES";position:absolute;bottom:8px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:3px;font-weight:900;color:#e7ffd022;pointer-events:none;z-index:-1}
+.players{position:relative;z-index:1}
+.player{min-height:78px;backdrop-filter:blur(5px)}
+.player.you{position:relative}
+.player.you:after{content:"YOU";display:inline-block;margin-top:7px;padding:3px 8px;border-radius:999px;background:#49f4ff19;border:1px solid #49f4ff65;color:#9afaff;font-size:9px;font-weight:900;letter-spacing:1.5px}
+.called{position:relative;z-index:1}
+.cardPicker{margin:14px auto;padding:14px;max-width:720px;border:1px solid #40dfff;border-radius:14px;background:#071426;box-shadow:0 0 22px #00dfff22}.cardPickerGrid{display:grid;grid-template-columns:repeat(7,minmax(36px,1fr));gap:7px}.pickCard{min-height:48px;background:#fff;color:#111;border:2px solid #d9e5f5;border-radius:8px;font-weight:900;font-size:17px}.pickCard.red{color:#df1f43}.pickCard:hover{transform:translateY(-2px);border-color:#ffd45a}@media(max-width:520px){.cardPickerGrid{grid-template-columns:repeat(4,minmax(36px,1fr))}
+.callcard{font-family:Georgia,serif;font-size:40px;border-radius:12px;position:relative}
+.callcard:after{content:"";position:absolute;inset:5px;border:1px solid #d8aa4e70;border-radius:7px;pointer-events:none}
+.receivedCard,.mini{flex:0 0 auto}
+.status{padding:8px 10px;border-radius:12px;background:#071c25a8;border:1px solid #d8bd6b30;max-width:760px;margin:0 auto}
+#call{min-width:min(240px,100%);min-height:52px;font-size:16px;letter-spacing:.35px}
+#call:not(:disabled){animation:callPulse 3.2s ease-in-out infinite}
+#call:disabled{opacity:.62;filter:saturate(.55);animation:none;cursor:not-allowed}
+#game>.row{margin-top:12px}
+.voicePanel{backdrop-filter:blur(10px)}
+@keyframes callPulse{0%,100%{box-shadow:0 5px 0 #56216c,0 8px 20px #ff4fae35}50%{box-shadow:0 5px 0 #56216c,0 0 27px #ff4fae70,0 0 40px #8157ff25}}
+@media(max-width:650px){main{padding:17px 12px 32px}.top{padding:0 12px;height:62px}.brand{font-size:12px}.brand small{font-size:8px;letter-spacing:1px}.mark{width:32px;height:32px}.wallet{padding:8px 10px;font-size:12px}.hero{padding:21px 0 24px}.hero:after{font-size:8px;letter-spacing:1.4px}.mode{min-height:160px}.table{padding:12px}.called{margin:19px 0}.callcard{width:82px;height:112px}.status{font-size:15px}.player{padding:10px}.receivedCard{width:34px;height:47px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#call:not(:disabled){animation:none}}
+
+
+/* FIX: readable native dropdown menus for rounds, currency, players and other selects */
+select option, select optgroup { background-color: #ffffff !important; color: #172033 !important; }
+select option:checked { background-color: #dbeafe !important; color: #172033 !important; }
+</style></head><body><header class="top"><div class="brand"><span class="mark">TN</span>TECHNOVA iGAMES<small>PLAY • CONNECT • EXPERIENCE</small></div><div class="row"><div class="wallet"><span id="walletLabel">Demo Wallet</span> <b id="balance">1,000</b> <span id="walletCurrency">SZL</span></div></div></header><main>
+<section id="home" class="view active"><div class="hero"><div style="color:#13cfff;letter-spacing:3px;font-weight:800">TECHNOVA iGAMES PRESENTS</div><h1>SIKASIKA</h1><p>Call a card. Deal the cards. Find the winner.</p></div><div class="grid"><div class="card mode"><div><h2>⚡ Quick Match</h2><p>Play against demo opponents immediately.</p></div><button class="primary" onclick="setup('quick')">Play Now</button></div><div class="card mode"><div><h2>👥 Play With Friends</h2><p>Create a local demo room and test the room-code flow.</p></div><button class="secondary" onclick="setup('friends')">Create Room</button></div><div class="card mode"><div><h2>🌐 Play Online</h2><p>Try the online-match interface with demo opponents on this device. Real cross-device multiplayer needs a server.</p></div><button class="secondary" onclick="setup('online')">Find Players</button></div><div class="card mode"><div><h2>🤖 Play Sikasika</h2><p>Test the business/player game mode.</p></div><button class="secondary" onclick="setup('business')">Play Sikasika</button></div></div><div class="grid" style="margin-top:15px"><div class="card"><h2>How It Works</h2><ol class="rules"><li>Choose the card you want to call.</li><li>Players choose the number of rounds before the game starts.</li><li>Cards deal automatically P1 → P2 → P3 → P4 → P1 → ... until the called card is received.</li><li>If nobody receives the called card, the SAME round continues automatically.</li><li>Any player can call the card at the start of each round.</li><li>The player who receives the called card wins that round.</li></ol></div><div class="card"><h2>Demo Only</h2><p>This Notepad version uses demo credits only. It has no real-money deposits, withdrawals or prizes.</p><div class="notice">Use it for classroom demonstration and user testing.</div></div></div></section>
+<section id="setup" class="view"><div class="card form"><h2 id="setupTitle">Game Setup</h2><div class="field"><label>Player name</label><input id="name" value="Player 1" maxlength="18"></div><div class="field"><label>Currency</label><select id="currency" onchange="updateBalance()"><option value="SZL">🇸🇿 SZL — E (Emalangeni)</option><option value="USD">🇺🇸 USD — $ (US Dollar)</option><option value="ZAR">🇿🇦 ZAR — R (Rand)</option><option value="EUR">🇪🇺 EUR — € (Euro)</option><option value="GBP">🇬🇧 GBP — £ (British Pound)</option></select></div><div class="field"><label>Demo stake</label><div class="stakes" id="stakes"></div></div><div class="field" id="countField"><label>Players</label><select id="count"><option value="2">2 Players</option><option value="3">3 Players</option><option value="4">4 Players</option></select></div><div class="field" id="roundsField"><label>Number of rounds</label><select id="rounds"><option value="1">1 Round</option><option value="2">2 Rounds</option><option value="3" selected>3 Rounds</option><option value="4">4 Rounds</option><option value="5">5 Rounds</option><option value="10">10 Rounds</option></select><small class="muted">Choose how many rounds this game will have. You can choose random or select a specific card separately for every round.</small></div><div class="field" id="roomField" style="display:none"><label>Room code</label><input id="room" placeholder="Example: SIKA2451"></div><div class="row"><button class="secondary" onclick="show('home')">Back</button><button class="primary" onclick="start()">Start Game</button></div></div></section>
+<section id="game" class="view"><div class="head"><div><h2 style="margin:0">Sikasika Table</h2><span id="modeText" class="muted"></span></div><div class="row"><span class="pill">Round <b id="round">1</b></span><span class="pill">Pot <b id="pot">0</b></span><span class="pill" id="cur">SZL</span></div></div><div class="table"><div id="players" class="players"></div><div class="called"><div class="muted">CALLED CARD</div><div id="called" class="callcard">?</div></div><div id="status" class="status">Choose a card to call.</div><div id="reveals" class="reveals"></div><div style="text-align:center" class="row"><button id="call" class="primary" onclick="callCard()">🎲 Call Card (Random)</button><button id="chooseCardBtn" class="secondary" onclick="showCardPicker()">🎯 Choose a Card</button></div><div id="cardPicker" class="cardPicker" style="display:none"><h3 style="margin:0 0 6px">Choose the card you want to call</h3><p class="muted" style="margin:0 0 12px">For this round, select any card. The game will deal automatically until someone receives it. You can choose again in every new round.</p><div id="cardPickerGrid" class="cardPickerGrid"></div><div style="margin-top:10px"><button class="secondary" onclick="hideCardPicker()">Cancel</button></div></div></div><div class="voicePanel" id="voicePanel" style="display:none"><h3>🎙️ Live Voice Chat</h3><p class="muted" style="margin:6px 0 10px">Room presence and game-state sync use the multiplayer server. Voice controls remain a local microphone test; remote voice requires WebRTC configuration.</p><div class="row"><button id="micButton" class="primary voiceOn" onclick="toggleMic()">🎙️ Mic On</button><button id="speakerButton" class="secondary" onclick="toggleSpeaker()">🔊 Speakers On</button></div><div id="voiceStatus" class="voiceStatus">Local microphone test only. Remote voice needs WebRTC setup.</div><div id="remoteAudios" style="display:none"></div></div><div class="row"><button class="secondary" onclick="leaveGame()">Leave Game</button><button class="secondary" onclick="start()">New Game</button></div></section></main>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+let mode='quick',stake=50,g={};const ST=[5,10,20,50,100,150,200];
+let roomSocket=null, roomHost=false, roomPlayerId=null, applyingRemoteState=false, roomMembers=[];
+function connectRoom(){if(typeof io==='undefined')return false;if(!roomSocket){roomSocket=io();roomSocket.on('connect',()=>{if(g&&g.room&&['friends','online'].includes(mode))roomSocket.emit('join-room',{room:g.room,name:g.name});});roomSocket.on('room-joined',d=>{roomHost=!!d.isHost;roomPlayerId=d.playerId;roomMembers=d.players||[];updateRoomStatus();if(d.state&&!roomHost)applyRemoteState(d.state);else broadcastGameState();});roomSocket.on('room-users',d=>{roomMembers=d.players||[];updateRoomStatus();});roomSocket.on('game-state',state=>{if(!roomHost)applyRemoteState(state);});roomSocket.on('room-error',msg=>alert(msg));roomSocket.on('host-left',()=>{roomHost=false;updateRoomStatus();});}return roomSocket.connected;}
+function updateRoomStatus(){const el=document.getElementById('modeText');if(el&&['friends','online'].includes(mode)){const names=roomMembers.map(x=>x.name).join(', ');el.textContent=(roomHost?'HOST':'JOINED')+' • Room '+(g.room||'')+' • '+roomMembers.length+' connected'+(names?' • '+names:'');}}
+function applyRemoteState(state){if(!state)return;applyingRemoteState=true;g=state;render();document.getElementById('pot').textContent=g.pot||0;document.getElementById('cur').textContent=g.currency||'SZL';document.getElementById('called').innerHTML=g.called?'<span class="'+(['♥','♦'].includes(g.called.s)?'red':'black')+'">'+esc(g.called.r)+esc(g.called.s)+'</span>':'?';document.getElementById('status').textContent=g.statusText||'Synced with room host.';document.getElementById('reveals').innerHTML=(g.p||[]).map(p=>p.card?'<div><div class="mini '+(g.called&&p.card.id===g.called.id?'win':'')+'"><span class="'+(['♥','♦'].includes(p.card.s)?'red':'black')+'">'+esc(p.card.r)+esc(p.card.s)+'</span></div><small>'+esc(p.name)+'</small></div>':'<div><div class="mini">?</div><small>'+esc(p.name)+'</small></div>').join('');document.getElementById('call').disabled=!roomHost||!!g.done||!!g.dealing;document.getElementById('chooseCardBtn').disabled=!roomHost||!!g.done||!!g.dealing;document.getElementById('call').textContent=g.done?'Game Finished':(g.dealing?'Dealing…':'🎲 Call Card (Random)');applyingRemoteState=false;}
+function serializableGame(){if(!g||!g.p)return null;return JSON.parse(JSON.stringify(g));}
+function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function leaveGame(){stopVoiceChat();show('home')}
+function setup(m){mode=m;document.getElementById('setupTitle').textContent=m==='friends'?'Create Private Demo Room':m==='online'?'Online Match Demo':m==='business'?'Play Against Sikasika':'Quick Match';document.getElementById('roomField').style.display=m==='friends'?'block':'none';document.getElementById('countField').style.display=m==='business'?'none':'block';document.getElementById('roundsField').style.display='block';let s=document.getElementById('stakes');s.innerHTML='';ST.forEach(x=>{let b=document.createElement('button');b.className='stake '+(x===stake?'sel':'');b.textContent=x+' credits';b.onclick=()=>{stake=x;document.querySelectorAll('.stake').forEach(z=>z.classList.remove('sel'));b.classList.add('sel')};s.appendChild(b)});show('setup')}
+function deck(){let a=[];[['♥',1],['♦',1],['♣',0],['♠',0]].forEach(([s])=>['A','2','3','4','5','6','7','8','9','10','J','Q','K'].forEach(r=>a.push({r,s,id:r+s})));return a}
+let walletCache={};
+const walletCurrencies=['SZL','USD','ZAR','EUR','GBP'];
+function currencyCode(){return (document.getElementById('currency')?.value||'SZL').split(' ')[0]}
+function walletBalance(currency){return walletCache[currency]??1000}
+function loadWallets(){try{const saved=JSON.parse(localStorage.getItem('sikasika_demo_wallets')||'{}');walletCache={SZL:1000,USD:1000,ZAR:1000,EUR:1000,GBP:1000,...saved};}catch(e){walletCache={SZL:1000,USD:1000,ZAR:1000,EUR:1000,GBP:1000};}updateBalance()}
+function saveWallets(){localStorage.setItem('sikasika_demo_wallets',JSON.stringify(walletCache))}
+function setBalance(currency,value){walletCache[currency]=Math.max(0,Math.round(value));updateBalance();saveWallets()}
+function updateBalance(){let c=currencyCode();document.getElementById('balance').textContent=walletBalance(c).toLocaleString();document.getElementById('walletCurrency').textContent=c}
+function changeBalance(currency,amount){let b=walletBalance(currency)+amount;setBalance(currency,b);return b}
+function start(){
+  let n=mode==='business'?2:+document.getElementById('count').value;
+  let name=(document.getElementById('name').value||'Player 1').trim();
+  let currency=document.getElementById('currency').value.split(' ')[0];
+  let room=(document.getElementById('room').value||('SIKA'+Math.floor(1000+Math.random()*9000))).toUpperCase();
+  if(walletBalance(currency)<stake){alert('Not enough demo credits. Your '+currency+' balance is '+walletBalance(currency)+'. Choose a lower stake.');return}
+  // Do not change the wallet when the game starts. Settle the demo stake only once, after the final result.
+  g={n,name,currency,room,round:1,maxRounds:+document.getElementById('rounds').value,d:deck(),called:null,p:[],pot:n*stake,done:false,paidIn:stake,roundsSettled:0,roundWins:{},online:mode==='online',host:true,playerKey:'local-'+Date.now()};
+  for(let i=0;i<n;i++)g.p.push({name:i===0?name:(mode==='business'&&i===1?'Sikasika Business':'Demo Player '+(i+1)),card:null,cards:[],you:i===0,playerKey:i===0?g.playerKey:'npc-'+i});
+  if(['friends','online'].includes(mode)){if(typeof io==='undefined'){alert('This game is not connected to the multiplayer server yet. Run it through the Node.js server described in README.txt.');}else{connectRoom();if(roomSocket.connected)roomSocket.emit('join-room',{room:g.room,name:g.name});else roomSocket.once('connect',()=>roomSocket.emit('join-room',{room:g.room,name:g.name}));}}else{roomHost=true;}
+  document.getElementById('modeText').textContent=(mode==='friends'?'Private Demo Room '+room+' • ':mode==='online'?'Online Mode Demo • '+room+' • ':mode==='business'?'Business Mode • ':'Quick Match • ')+currency;
+  document.getElementById('pot').textContent=g.pot;document.getElementById('cur').textContent=currency;updateBalance();
+  render();document.getElementById('called').textContent='?';document.getElementById('reveals').innerHTML='';document.getElementById('status').textContent=mode==='online'?'Demo match ready. These are local demo opponents, not live online players.':'Choose a card to call.';document.getElementById('call').disabled=false;document.getElementById('chooseCardBtn').disabled=false;hideCardPicker();document.getElementById('call').textContent='🎲 Call Card (Random)';show('game');
+  document.getElementById('voicePanel').style.display='block';startVoiceChat(room);
+}
+function broadcastGameState(){if(applyingRemoteState||!roomSocket||!roomSocket.connected||!roomHost||!['friends','online'].includes(mode)||!g||!g.p)return;g.statusText=document.getElementById('status')?.textContent||'';roomSocket.emit('game-state',{room:g.room,state:serializableGame()});}
+function render(){document.getElementById('players').innerHTML=g.p.map(p=>{let cards=(p.cards||[]).map(c=>'<span class="receivedCard '+((c.s==='♥'||c.s==='♦')?'red':'black')+'">'+c.r+c.s+'</span>').join('');return '<div class="player '+(p.you?'you':'')+'"><div class="playerTop"><b>'+esc(p.name)+'</b><span>'+(p.you?'YOU':'')+'</span></div><small>'+(p.cards&&p.cards.length?('Cards received: '+p.cards.length):'Waiting for deal')+'</small><div class="received">'+cards+'</div></div>'}).join('');document.getElementById('round').textContent=g.round}
+function callCard(){
+if(['friends','online'].includes(mode)&&!roomHost){alert('Only the room host can start the deal for now.');return;}
+if(g.done||g.dealing)return;
+const available=deck();
+const randomCard=available[Math.floor(Math.random()*available.length)];
+startDealWithCard(randomCard,'random');
+}
+function showCardPicker(){
+if(['friends','online'].includes(mode)&&!roomHost){alert('Only the room host can choose the called card for now.');return;}
+if(g.done||g.dealing)return;
+const picker=document.getElementById('cardPicker');
+const grid=document.getElementById('cardPickerGrid');
+const allCards=deck();
+const suitsOrder=['♥','♦','♣','♠'];
+allCards.sort((a,b)=>suitsOrder.indexOf(a.s)-suitsOrder.indexOf(b.s));
+ grid.innerHTML=allCards.map(c=>'<button type="button" class="pickCard '+((c.s==='♥'||c.s==='♦')?'red':'black')+'" data-rank="'+c.r+'" data-suit="'+c.s+'" onclick="selectCalledCard(this.dataset.rank,this.dataset.suit)">'+c.r+c.s+'</button>').join('');
+ picker.style.display='block';
+ document.getElementById('chooseCardBtn').disabled=true;
+}
+function hideCardPicker(){document.getElementById('cardPicker').style.display='none';document.getElementById('chooseCardBtn').disabled=false;}
+function selectCalledCard(rank,suit){
+ const selected=deck().find(c=>c.r===rank&&c.s===suit);
+ if(selected)startDealWithCard(selected,'chosen');
+}
+function startDealWithCard(card,choice){
+ if(g.done||g.dealing)return;
+ hideCardPicker();
+ g.called=card;
+ document.getElementById('called').innerHTML='<span class="'+(g.called.s==='♥'||g.called.s==='♦'?'red':'black')+'">'+g.called.r+g.called.s+'</span>';
+ document.getElementById('status').textContent=(choice==='chosen'?'You chose '+card.r+card.s+'. ':'Random card selected. ')+'Dealing cards automatically…';
+ document.getElementById('call').disabled=true;
+ document.getElementById('chooseCardBtn').disabled=true;
+ g.dealing=true;
+ g.turn=0;
+ broadcastGameState();
+ g.p.forEach(p=>{p.card=null;p.cards=[]});
+ document.getElementById('reveals').innerHTML='';
+ setTimeout(dealNext,450)
+}
+
+function dealNext(){
+if(g.done||!g.dealing)return;
+if(g.d.length===0){g.dealing=false;return;}
+
+let player=g.p[g.turn%g.n];
+let idx=Math.floor(Math.random()*g.d.length);
+let c=g.d.splice(idx,1)[0];
+player.card=c;
+player.cards.push(c);
+
+render();
+broadcastGameState();
+document.getElementById('reveals').innerHTML=g.p.map(p=>{
+if(!p.card)return '<div><div class="mini">?</div><small>'+esc(p.name)+'</small></div>';
+let color=(p.card.s==='♥'||p.card.s==='♦')?'red':'black';
+return '<div><div class="mini '+(p.card.id===g.called.id?'win':'')+'"><span class="'+color+'">'+p.card.r+p.card.s+'</span></div><small>'+esc(p.name)+'</small></div>';
+}).join('');
+
+if(c.id===g.called.id){
+g.dealing=false;
+let w=player;
+g.roundWins[w.playerKey]=(g.roundWins[w.playerKey]||0)+1;
+// Settle demo credits immediately after EACH round, not only after the final round.
+// A local round win earns the pot minus the player's stake; a loss costs the selected stake.
+const localRoundWinner=(w.playerKey===g.playerKey)||w.you;
+const roundNet=localRoundWinner?(g.pot-g.paidIn):-g.paidIn;
+changeBalance(g.currency,roundNet);
+g.roundsSettled++;
+const roundMoneyText=localRoundWinner?(' You earned +'+roundNet+' '+g.currency+'.'):(' You lost '+g.paidIn+' '+g.currency+' this round.');
+document.getElementById('status').innerHTML='🏆 <span style="color:#20d58a">'+esc(w.name)+' wins Round '+g.round+'!</span>'+esc(roundMoneyText)+' Balance: '+walletBalance(g.currency)+' '+g.currency+'.';
+document.getElementById('call').disabled=true;
+document.getElementById('call').textContent='Round '+g.round+' Complete';
+if(g.round<g.maxRounds){
+g.round++;
+g.d=deck();
+broadcastGameState();
+g.p.forEach(p=>{p.card=null;p.cards=[]});
+render();
+setTimeout(()=>{
+document.getElementById('status').textContent='Round '+g.round+' of '+g.maxRounds+': choose Call Card (Random) or Choose a Card for this round.';
+document.getElementById('called').textContent='?';
+document.getElementById('reveals').innerHTML='';
+document.getElementById('call').disabled=false;
+document.getElementById('chooseCardBtn').disabled=false;
+document.getElementById('call').textContent='🎲 Call Card (Random)';
+},900);
+}else{
+g.done=true;
+let winnerKey=Object.keys(g.roundWins).sort((a,b)=>(g.roundWins[b]||0)-(g.roundWins[a]||0))[0]||w.playerKey;
+let winner=g.p.find(p=>p.playerKey===winnerKey)||w;
+let payout=g.pot;
+g.finalWinner=winner.name;g.finalWinnerKey=winner.playerKey;g.payout=payout;
+broadcastGameState();
+document.getElementById('status').innerHTML='🏆 <span style="color:#20d58a">'+esc(winner.name)+' wins the game after '+g.maxRounds+' round'+(g.maxRounds===1?'':'s')+'! </span>Round-by-round demo credits have already been settled. Final balance: '+walletBalance(g.currency)+' '+g.currency+'.';
+document.getElementById('call').textContent='Game Finished';document.getElementById('chooseCardBtn').disabled=true;hideCardPicker();
+}
+return;
+}
+
+g.turn=(g.turn+1)%g.n;
+setTimeout(dealNext,650);
+}
+
+let localMicStream=null, micEnabled=true, speakersEnabled=true;
+function voiceStatus(msg){const el=document.getElementById('voiceStatus');if(el)el.textContent=msg;}
+function updateVoiceButtons(){const m=document.getElementById('micButton'),sp=document.getElementById('speakerButton');if(m){m.textContent=micEnabled?'🎙️ Mic On':'🔇 Mic Off';m.className=micEnabled?'primary voiceOn':'secondary voiceOff'}if(sp){sp.textContent=speakersEnabled?'🔊 Speakers On':'🔇 Speakers Off'}}
+async function startVoiceChat(room){
+  document.getElementById('voicePanel').style.display='block';
+  voiceStatus('Requesting microphone permission for a local microphone test…');
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){voiceStatus('Microphone access is unavailable here. Open the game on HTTPS or localhost using a supported browser.');return;}
+  try{localMicStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});localMicStream.getAudioTracks().forEach(t=>t.enabled=micEnabled);voiceStatus('Microphone permission granted. This tests your mic locally; it is not transmitted to other players yet.');}
+  catch(e){micEnabled=false;updateVoiceButtons();voiceStatus('Microphone permission denied or unavailable. Allow microphone access in your browser and try again.');}
+  updateVoiceButtons();
+}
+function toggleMic(){if(!localMicStream){voiceStatus('Microphone is not active. Allow microphone access and start an online-mode demo.');return;}micEnabled=!micEnabled;localMicStream.getAudioTracks().forEach(t=>t.enabled=micEnabled);updateVoiceButtons();voiceStatus(micEnabled?'Microphone is ON locally. Other players cannot hear it yet.':'Microphone muted.');}
+function toggleSpeaker(){speakersEnabled=!speakersEnabled;updateVoiceButtons();voiceStatus(speakersEnabled?'Speaker control is on. Remote audio is not connected yet.':'Speaker control is off.');}
+async function stopVoiceChat(){if(localMicStream){localMicStream.getTracks().forEach(t=>t.stop());localMicStream=null;}const panel=document.getElementById('voicePanel');if(panel)panel.style.display='none';}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+</script>
+<script>
+loadWallets();
+updateVoiceButtons();
+</script></body></html>
